@@ -39,15 +39,20 @@ h1 {
     height: 150px;
     border-radius: 50%;
     background-color: blue;
+    box-shadow: 0 0 10px 10px blue;
     margin: 40px;
-}
 
-.button:hover {
-    background: radial-gradient(lime, yellow);
 }
 
 .button:active {
-    background: radial-gradient(crimson, purple)
+    background: radial-gradient(lime, yellow);
+    box-shadow: 0 0 10px 10px yellow;
 }
+
+
+
+/* .button:active {
+    background: radial-gradient(crimson, purple)
+} */
 
 
