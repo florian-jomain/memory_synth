@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color:midnightblue;
+  color: blue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
+.container{
+    width: 900px;
+    height: 750px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: blue;
+    margin: 40px;
+    box-shadow: 0 0 100px 100px blue;
+    animation: 12s ease-in-out infinite pulsateBtn,
+               12s ease-in-out infinite borderPulse;
+}
+
+@keyframes appearBtn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsateBtn {
+  from {
+      transform: scale(1);
+      transform-origin: center center;
+      animation-timing-function: ease-out;
+  }
+  10% {
+      transform: scale(0.91);
+      animation-timing-function: ease-in;
+  }
+  17% {
+      transform: scale(0.98);
+      animation-timing-function: ease-out;
+  }
+  33% {
+      transform: scale(0.87);
+      animation-timing-function: ease-in;
+  }
+  45% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+  }
+  60% {
+      transform: scale(0.91);
+      animation-timing-function: ease-in;
+  }
+  75% {
+      transform: scale(0.98);
+      animation-timing-function: ease-out;
+  }
+  90% {
+      transform: scale(0.87);
+      animation-timing-function: ease-in;
+  }
+  100% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+  }
+}
+
+@keyframes borderPulse {
+  from {
+    box-shadow: 0 0 100px 100px blue;
+}
+10% {
+    box-shadow: 0 0 120px 120px blue;
+}
+17% {
+    box-shadow: 0 0 150px 150px blue;
+}
+33% {
+    box-shadow: 0 0 180px 180px blue;
+}
+45% {
+    box-shadow: 0 0 200px 200px blue;
+}
+60% {
+    box-shadow: 0 0 180px 180px blue;
+  }
+75% {
+    box-shadow: 0 0 150px 150px blue;
+  }
+90% {
+    box-shadow: 0 0 120px 120px blue;
+  }
+100% {
+    box-shadow: 0 0 100px 100px blue;
+  }
+}
+
+/* .button:hover {
+    background: radial-gradient(blue, blue);
+}
+
+.button:active {
+    background: radial-gradient(crimson, purple)
+} */
+
+
