@@ -10,7 +10,7 @@ window.addEventListener('click', () => {
 //----------------------------------------------------------
 //Generic variables
 
-const gain = new Tone.Gain(0.5);
+const gain = new Tone.Gain(0.3);
 gain.toMaster();
 
 //----------------------------------------------------------
@@ -41,7 +41,7 @@ gain.toMaster();
 
 const synth = new Tone.Synth({
     'oscillator': {
-        'type': 'sine',
+        'type': 'sawtooth',
         'modulationFrequency': 0.8
     },
     'envelope': {
@@ -52,71 +52,100 @@ const synth = new Tone.Synth({
     }
 });
 
-synth.connect(gain);
+let reverb = new Tone.Reverb({
+    decay: 10,
+    preDelay: 0.05
+});
+reverb.generate();
+
+synth.chain(reverb, gain);
+// synth.connect(gain); // to plug off reverb
 
 //----------------------------------------------------------
 //Singular tone functions
 
-export function c3() {
-    synth.triggerAttackRelease('C3', '8n');
+class notesClass {
+
+    c3() {
+        synth.triggerAttackRelease('C3', '8n');
+    }
+
+    cSharp3() {
+        synth.triggerAttackRelease('C#3', '8n');
+    }
+
+    d3() {
+        synth.triggerAttackRelease('D3', '8n');
+    }
+
+    dSharp3() {
+        synth.triggerAttackRelease('D#3', '8n');
+    }
+
+    e3() {
+        synth.triggerAttackRelease('E3', '8n');
+    }
+
+    f3() {
+        synth.triggerAttackRelease('F3', '8n');
+    }
+
+    fSharp3() {
+        synth.triggerAttackRelease('F#3', '8n');
+    }
+
+    g3() {
+        synth.triggerAttackRelease('G3', '8n');
+    }
+
+    gSharp3() {
+        synth.triggerAttackRelease('G#3', '8n');
+    }
+
+    a4() {
+        synth.triggerAttackRelease('A4', '8n');
+    }
+
+    aSharp4() {
+        synth.triggerAttackRelease('A#4', '8n');
+    }
+
+    b4() {
+        synth.triggerAttackRelease('B4', '8n');
+    }
+
+    c4() {
+        synth.triggerAttackRelease('C4', '8n');
+    }
+
+    cSharp4() {
+        synth.triggerAttackRelease('C#4', '8n');
+    }
+
+    d4() {
+        synth.triggerAttackRelease('D4', '8n');
+    }
+
+    dSharp4() {
+        synth.triggerAttackRelease('D#4', '8n');
+    }
+
+    sequence1() {
+        const sequence1 = ['D3', 'G3', 'D4', 'C4', 'D4'];
+        let seq1 = new Tone.Sequence((time, note) => {
+            synth.triggerAttackRelease(note, '8n', time);
+        }, sequence1, '8n')
+        Tone.Transport.bpm.value = 40;
+        seq1.start(0);
+        Tone.Transport.start();
+    }
+
+    background() {
+        let oscillator = new Tone.Oscillator(400, 'sine').start();
+        let lowPassFilter = new Tone.LowpassCombFilter(0.1, 1, 400);
+        oscillator.chain(lowPassFilter, gain);
+        console.log('trtee');
+    }
 }
 
-export function cSharp3() {
-    synth.triggerAttackRelease('C#3', '8n');
-}
-
-export function d3() {
-    synth.triggerAttackRelease('D3', '8n');
-}
-
-export function dSharp3() {
-    synth.triggerAttackRelease('D#3', '8n');
-}
-
-export function e3() {
-    synth.triggerAttackRelease('E3', '8n');
-}
-
-export function f3() {
-    synth.triggerAttackRelease('F3', '8n');
-}
-
-export function fSharp3() {
-    synth.triggerAttackRelease('F#3', '8n');
-}
-
-export function g3() {
-    synth.triggerAttackRelease('G3', '8n');
-}
-
-export function gSharp3() {
-    synth.triggerAttackRelease('G#3', '8n');
-}
-
-export function a4() {
-    synth.triggerAttackRelease('A4', '8n');
-}
-
-export function aSharp4() {
-    synth.triggerAttackRelease('A#4', '8n');
-}
-
-export function b4() {
-    synth.triggerAttackRelease('B4', '8n');
-}
-
-export function c4() {
-    synth.triggerAttackRelease('C4', '8n');
-}
-
-export function cSharp4() {
-    synth.triggerAttackRelease('C#4', '8n');
-}
-
-export function d4() {
-    synth.triggerAttackRelease('D4', '8n');
-}
-
-export function dSharp4() {
-    synth.triggerAttackRelease('D#4', '8n');
-}
+export { notesClass };

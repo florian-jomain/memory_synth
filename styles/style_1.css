@@ -39,17 +39,84 @@ h1 {
     height: 150px;
     border-radius: 50%;
     background-color: blue;
-    box-shadow: 0 0 10px 10px blue;
+    box-shadow: 0 0 10px 10px rgb(0, 0, 40);
     margin: 40px;
+}
 
+.main-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: springgreen;
+  box-shadow: 0 0 10px 10px springgreen;
+  animation: 10s linear infinite pulsateBtn;
+}
+
+.background-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: crimson;
+  box-shadow: 0 0 10px 10px crimson;
+  animation: 10s linear infinite pulsateBtn;
 }
 
 .button:active {
-    background: radial-gradient(lime, yellow);
-    box-shadow: 0 0 10px 10px yellow;
+  background: radial-gradient(crimson, purple);
 }
 
+.button:hover {
+  background: radial-gradient(lime, yellow);
+}
 
+@keyframes appearBtn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsateBtn {
+  from {
+      transform: scale(1);
+      transform-origin: center center;
+      animation-timing-function: ease-out;
+  }
+  10% {
+      transform: scale(1.2);
+      animation-timing-function: ease-in;
+  }
+  17% {
+      transform: scale(1.5);
+      animation-timing-function: ease-out;
+  }
+  33% {
+      transform: scale(1.7);
+      animation-timing-function: ease-in;
+  }
+  45% {
+      transform: scale(2);
+      animation-timing-function: ease-out;
+  }
+  60% {
+      transform: scale(1.7);
+      animation-timing-function: ease-in;
+  }
+  75% {
+      transform: scale(1.5);
+      animation-timing-function: ease-out;
+  }
+  90% {
+      transform: scale(1.2);
+      animation-timing-function: ease-in;
+  }
+  100% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+  }
+}
 
 /* .button:active {
     background: radial-gradient(crimson, purple)
