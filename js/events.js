@@ -1,5 +1,27 @@
 import { notesClass } from './sound.js';
+
 let notes = new notesClass();
+
+let level = 1;
+
+export let userInput = [];
+
+const sequences = [
+    ['D3', 'G3', 'D4'],
+    ['D3', 'G3', 'D4', 'C4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3', 'D4']
+];
+
+console.log(sequences[level][0]);
+
+
 
 //---------------------------------------------
 // Mapping DOM elements to CSS animations
@@ -9,10 +31,56 @@ let notes = new notesClass();
 // // }
 
 //---------------------------------------------
+// Play button event
+
+// let mainBtn = document.querySelector('#main-button');
+
+// mainBtn.addEventListener('mouseover', playSequence(level));
+
+//---------------------------------------------
+// Validate button event
+
+let validateBtn = document.getElementById('validate-button');
+
+validateBtn.addEventListener('click', e => checkInput(e.target));
+
+//---------------------------------------------
+// Level event
+
+const displayLevel = {
+    1: '|',
+    2: '| |',
+    3: '| | |',
+    4: '| | | |',
+    5: '| | | | |',
+    6: '| | | | | |',
+    7: '| | | | | | |',
+    8: '| | | | | | | |',
+    9: '| | | | | | | | |',
+    10: '| | | | | | | | | | |'
+}
+
+let title = document.querySelector('h1');
+    title.innerHTML = displayLevel[`${level}`];
+
+//---------------------------------------------
 // Button events
 
-let mainBtn = document.querySelector('.main-button');
-let backgroundBtn = document.querySelector('.background-button');
+let allBtns = document.querySelectorAll('.button');
+
+allBtns.forEach(button => {
+    button.addEventListener('click', e => setActive(e.target))
+});
+
+function setActive(button) {
+    button.classList.toggle('active');
+}
+
+function setInactive() {
+    allBtns.forEach(button => {
+        button.classList.remove('active');
+    });
+}
 
 let button1 = document.querySelector('#btn-1');
 let button2 = document.querySelector('#btn-2');
@@ -31,44 +99,85 @@ let button14 = document.querySelector('#btn-14');
 let button15 = document.querySelector('#btn-15');
 let button16 = document.querySelector('#btn-16');
 
-button1.addEventListener('mouseover', notes.c3);
-button2.addEventListener('mouseover', notes.cSharp3);
-button3.addEventListener('mouseover', notes.d3);
-button4.addEventListener('mouseover', notes.dSharp3);
-button5.addEventListener('mouseover', notes.e3);
-button6.addEventListener('mouseover', notes.f3);
-button7.addEventListener('mouseover', notes.fSharp3);
-button8.addEventListener('mouseover', notes.g3);
-button9.addEventListener('mouseover', notes.gSharp3);
-button10.addEventListener('mouseover', notes.a4);
-button11.addEventListener('mouseover', notes.aSharp4);
-button12.addEventListener('mouseover', notes.b4);
-button13.addEventListener('mouseover', notes.c4);
-button14.addEventListener('mouseover', notes.cSharp4);
-button15.addEventListener('mouseover', notes.d4);
-button16.addEventListener('mouseover', notes.dSharp4);
+button1.addEventListener('mouseover', notes.c3Hover);
+button2.addEventListener('mouseover', notes.cSharp3Hover);
+button3.addEventListener('mouseover', notes.d3Hover);
+button4.addEventListener('mouseover', notes.dSharp3Hover);
+button5.addEventListener('mouseover', notes.e3Hover);
+button6.addEventListener('mouseover', notes.f3Hover);
+button7.addEventListener('mouseover', notes.fSharp3Hover);
+button8.addEventListener('mouseover', notes.g3Hover);
+button9.addEventListener('mouseover', notes.gSharp3Hover);
+button10.addEventListener('mouseover', notes.a4Hover);
+button11.addEventListener('mouseover', notes.aSharp4Hover);
+button12.addEventListener('mouseover', notes.b4Hover);
+button13.addEventListener('mouseover', notes.c4Hover);
+button14.addEventListener('mouseover', notes.cSharp4Hover);
+button15.addEventListener('mouseover', notes.d4Hover);
+button16.addEventListener('mouseover', notes.dSharp4Hover);
 
-mainBtn.addEventListener('mouseover', playSequence);
-
-function playSequence() {
-    mainBtn.classList.toggle("is-active");
-    mainBtn.classList.contains("is-active") ? notes.sequence1() : Tone.Transport.stop();
-}
-
-backgroundBtn.addEventListener('mouseover', playBackground);
-
-function playBackground() {
-    backgroundBtn.classList.toggle("is-active");
-    backgroundBtn.classList.contains("is-active") ? notes.background() : Tone.Transport.stop();
-}
+button1.addEventListener('click', notes.c3Click);
+button2.addEventListener('click', notes.cSharp3Click);
+button3.addEventListener('click', notes.d3Click);
+button4.addEventListener('click', notes.dSharp3Click);
+button5.addEventListener('click', notes.e3Click);
+button6.addEventListener('click', notes.f3Click);
+button7.addEventListener('click', notes.fSharp3Click);
+button8.addEventListener('click', notes.g3Click);
+button9.addEventListener('click', notes.gSharp3Click);
+button10.addEventListener('click', notes.a4Click);
+button11.addEventListener('click', notes.aSharp4Click);
+button12.addEventListener('click', notes.b4Click);
+button13.addEventListener('click', notes.c4Click);
+button14.addEventListener('click', notes.cSharp4Click);
+button15.addEventListener('click', notes.d4Click);
+button16.addEventListener('click', notes.dSharp4Click);
 
 //---------------------------------------------------
 // Introducing game functionality
 
-let userInput = [];
+// window.addEventListener('load', playSequence(level));
 
-const sequence1 = ['D3', 'G3', 'D4'];
-const sequence2 = ['D3', 'G3', 'D4', 'C4', 'D4'];
+let currentSequence = sequences[level - 1];
 
+function playSequence(currentSequence) {
+    console.log('Passing sound');
+    notes.sequence(currentSequence);
+    console.log('Coucou');
+}
 
+function checkInput() {
+    //vérifier si level existe bien
+    if (userInput.length != currentSequence.length) {
+        userInput = [];
+        setInactive();
+        return false;
+    }
+    for (let i = 0; i < userInput.length; i++) {
+        if (userInput[i] != currentSequence[i]) {
+                userInput = [];
+                setInactive();
+                return false;
+        } 
+    }
+    //Need to add button blinking function
 
+    nextLevel();
+}
+
+function nextLevel() {
+    level += 1;
+    playSequence(currentSequence);
+    setInactive();
+    userInput = [];
+}
+
+//---------------------------------------------------
+// Function to play background noise (deactivated for now)
+
+// backgroundBtn.addEventListener('mouseover', playBackground);
+
+// function playBackground() {
+//     backgroundBtn.classList.toggle("is-active");
+//     backgroundBtn.classList.contains("is-active") ? notes.background() : Tone.Transport.stop();
+// }

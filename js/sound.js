@@ -10,7 +10,7 @@ window.addEventListener('click', () => {
 //----------------------------------------------------------
 //Generic variables
 
-const gain = new Tone.Gain(0.3);
+const gain = new Tone.Gain(0.7);
 gain.toMaster();
 
 //----------------------------------------------------------
@@ -41,7 +41,7 @@ gain.toMaster();
 
 const synth = new Tone.Synth({
     'oscillator': {
-        'type': 'fatsawtooth',
+        'type': 'sine',
         'modulationFrequency': 0.8
     },
     'envelope': {
@@ -64,96 +64,161 @@ synth.chain(reverb, gain);
 //----------------------------------------------------------
 //Singular tone functions
 
+import { userInput } from './events.js';
+
 class notesClass {
 
-    c3() {
+    c3Click() {
+        userInput.push('C3');
+        console.log(userInput);
+    }
+
+    cSharp3Click() {
+        userInput.push('C#3');
+        console.log(userInput);
+    }
+
+    d3Click() {
+        userInput.push('D3');
+        console.log(userInput);
+    }
+
+    dSharp3Click() {
+        userInput.push('D#3');
+        console.log(userInput);
+    }
+
+    e3Click() {
+        userInput.push('E3');
+        console.log(userInput);
+    }
+
+    f3Click() {
+        userInput.push('F3');
+        console.log(userInput);
+    }
+
+    fSharp3Click() {
+        userInput.push('F#3');
+        console.log(userInput);
+    }
+
+    g3Click() {
+        userInput.push('G3');
+        console.log(userInput);
+    }
+
+    gSharp3Click() {
+        userInput.push('G#3');
+        console.log(userInput);
+    }
+
+    a4Click() {
+        userInput.push('A4');
+        console.log(userInput);
+    }
+
+    aSharp4Click() {
+        userInput.push('A#4');
+        console.log(userInput);
+    }
+
+    b4Click() {
+        userInput.push('B4');
+        console.log(userInput);
+    }
+
+    c4Click() {
+        userInput.push('C4');
+        console.log(userInput);
+    }
+
+    cSharp4Click() {
+        userInput.push('C#4');
+        console.log(userInput);
+    }
+
+    d4Click() {
+        userInput.push('D4');
+        console.log(userInput);
+    }
+
+    dSharp4Click() {
+        userInput.push('D#4');
+        console.log(userInput);
+    }
+
+    c3Hover() {
         synth.triggerAttackRelease('C3', '8n');
-        return 'C3';
     }
 
-    cSharp3() {
+    cSharp3Hover() {
         synth.triggerAttackRelease('C#3', '8n');
-        return 'C#3';
     }
 
-    d3() {
+    d3Hover() {
         synth.triggerAttackRelease('D3', '8n');
-        return 'D3';
     }
 
-    dSharp3() {
+    dSharp3Hover() {
         synth.triggerAttackRelease('D#3', '8n');
-        return 'D#3';
     }
 
-    e3() {
+    e3Hover() {
         synth.triggerAttackRelease('E3', '8n');
-        return 'E3';
     }
 
-    f3() {
+    f3Hover() {
         synth.triggerAttackRelease('F3', '8n');
-        return 'F3';
     }
 
-    fSharp3() {
+    fSharp3Hover() {
         synth.triggerAttackRelease('F#3', '8n');
-        return 'F#3';
     }
 
-    g3() {
+    g3Hover() {
         synth.triggerAttackRelease('G3', '8n');
-        return 'G3';
     }
 
-    gSharp3() {
+    gSharp3Hover() {
         synth.triggerAttackRelease('G#3', '8n');
-        return 'G#3';
     }
 
-    a4() {
+    a4Hover() {
         synth.triggerAttackRelease('A4', '8n');
-        return 'A4';
     }
 
-    aSharp4() {
+    aSharp4Hover() {
         synth.triggerAttackRelease('A#4', '8n');
-        return 'A#4';
     }
 
-    b4() {
+    b4Hover() {
         synth.triggerAttackRelease('B4', '8n');
-        return 'B4';
     }
 
-    c4() {
+    c4Hover() {
         synth.triggerAttackRelease('C4', '8n');
-        return 'C4';
     }
 
-    cSharp4() {
+    cSharp4Hover() {
         synth.triggerAttackRelease('C#4', '8n');
-        return 'C#4';
     }
 
-    d4() {
+    d4Hover() {
         synth.triggerAttackRelease('D4', '8n');
-        return 'D4';
     }
 
-    dSharp4() {
+    dSharp4Hover() {
         synth.triggerAttackRelease('D#4', '8n');
-        return 'D#4';
     }
 
-    sequence1() {
-        const sequence1 = ['D3', 'G3', 'D4', 'C4', 'D4'];
-        let seq1 = new Tone.Sequence((time, note) => {
+    sequence(sequence) {
+        let seq = new Tone.Sequence((time, note) => {
             synth.triggerAttackRelease(note, '8n', time);
-        }, sequence1, '4n');
-        seq1.loop = false;
-        Tone.Transport.bpm.value = 60;
-        seq1.start(0);
+        }, sequence, '4n');
+        seq.loop = false;
+        Tone.Transport.bpm.value = 90;
+        seq.start(0);
         Tone.Transport.start();
     }
 
