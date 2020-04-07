@@ -1,14 +1,16 @@
 import { notesClass } from './sound.js';
 let notes = new notesClass();
 
-//Activating main button on HP
+//---------------------------------------------
+// Mapping DOM elements to CSS animations
 
 // // function moveBtn() {
 // //     mainBtn.style.transform = "translateY(-30em) scale(0.3)";
 // // }
 
 //---------------------------------------------
-//Keyboard events
+// Button events
+
 let mainBtn = document.querySelector('.main-button');
 let backgroundBtn = document.querySelector('.background-button');
 
@@ -59,3 +61,14 @@ function playBackground() {
     backgroundBtn.classList.toggle("is-active");
     backgroundBtn.classList.contains("is-active") ? notes.background() : Tone.Transport.stop();
 }
+
+//---------------------------------------------------
+// Introducing game functionality
+
+let userInput = [];
+
+const sequence1 = ['D3', 'G3', 'D4'];
+const sequence2 = ['D3', 'G3', 'D4', 'C4', 'D4'];
+
+
+
