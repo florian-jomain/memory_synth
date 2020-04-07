@@ -41,7 +41,7 @@ gain.toMaster();
 
 const synth = new Tone.Synth({
     'oscillator': {
-        'type': 'sawtooth',
+        'type': 'fatsawtooth',
         'modulationFrequency': 0.8
     },
     'envelope': {
@@ -144,7 +144,6 @@ class notesClass {
         let oscillator = new Tone.Oscillator(400, 'sine').start();
         let lowPassFilter = new Tone.LowpassCombFilter(0.1, 1, 400);
         oscillator.chain(lowPassFilter, gain);
-        console.log('trtee');
     }
 }
 
