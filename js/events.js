@@ -10,6 +10,28 @@ export let sequences = [];
 
 let currentSequence = [];
 
+//------------------------------------------------------
+// Mapping single buttons
+
+export let button1 = document.querySelector('#btn-1');
+export let button2 = document.querySelector('#btn-2');
+export let button3 = document.querySelector('#btn-3');
+export let button4 = document.querySelector('#btn-4');
+export let button5 = document.querySelector('#btn-5');
+export let button6 = document.querySelector('#btn-6');
+export let button7 = document.querySelector('#btn-7');
+export let button8 = document.querySelector('#btn-8');
+export let button9 = document.querySelector('#btn-9');
+export let button10 = document.querySelector('#btn-10');
+export let button11 = document.querySelector('#btn-11');
+export let button12 = document.querySelector('#btn-12');
+export let button13 = document.querySelector('#btn-13');
+export let button14 = document.querySelector('#btn-14');
+export let button15 = document.querySelector('#btn-15');
+export let button16 = document.querySelector('#btn-16');
+
+let allBtns = document.querySelectorAll('.button');
+
 //---------------------------------------------
 // Mapping whole keyboard to array
 
@@ -20,12 +42,31 @@ export const board = [
     ['C4', 'C#4', 'D4', 'D#4']
 ];
 
+export const boardButtons = {
+    'C3': button1,
+    'C#3': button2,
+    'D3': button3,
+    'D#3': button4,
+    'E3': button5,
+    'F3': button6,
+    'F#3': button7,
+    'G3': button8,
+    'G#3': button9,
+    'A4': button10,
+    'A#4': button11,
+    'B4': button12,
+    'C4': button13,
+    'C#4': button14,
+    'D4': button15,
+    'D#4': button16
+};
+
 //---------------------------------------------
 // Work on sequences
 
 // Generating random sequences
 
-function generateArrayOfNotes(level) {
+function generateRandomSequence(level) {
     let arrayOfNotes = [];
     for (let i = 0; i < level + 2; i++) {
         let randomNote = board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)];
@@ -37,16 +78,44 @@ function generateArrayOfNotes(level) {
 }
 
 //---------------------------------------------
-// Lighting up buttons (active class) when each note of the sequence is played
+// Lighting up buttons (active class) on click
 
-// function lightUpButtons(sequence) {
+// allBtns.forEach(button => {
+//     button.addEventListener('click', e => setActive(e.target))
+// });
 
+export function setActive(button) {
+    button.classList.toggle('active');
+}
+
+export function setInactive(button) {
+    button.classList.remove('active');
+}
+
+// function setInactive() {
+//     allBtns.forEach(button => {
+//         button.classList.remove('active');
+//     });
 // }
 
+//---------------------------------------------
+// Lighting up buttons (active class) when each note of the sequence is played
+
+function lightingKeys(){
+    let mappedSequence = [];
+    currentSequence.forEach(value => {
+        mappedSequence.push(boardButtons[value]);
+    });
+    console.log(mappedSequence);
+
+    // mappedSequence.forEach(element => {
+    //     element.classList.toggle('active');
+    //     element.classList.toggle('active');
+    // })
+}
 
 
-
-
+// function lightingKeys()
 
 //---------------------------------------------
 // Mapping DOM elements to CSS animations
@@ -91,93 +160,61 @@ const displayLevel = {
 //---------------------------------------------
 // Button events
 
-let allBtns = document.querySelectorAll('.button');
+// button1.addEventListener('mouseover', notes.c3Hover);
+// button2.addEventListener('mouseover', notes.cSharp3Hover);
+// button3.addEventListener('mouseover', notes.d3Hover);
+// button4.addEventListener('mouseover', notes.dSharp3Hover);
+// button5.addEventListener('mouseover', notes.e3Hover);
+// button6.addEventListener('mouseover', notes.f3Hover);
+// button7.addEventListener('mouseover', notes.fSharp3Hover);
+// button8.addEventListener('mouseover', notes.g3Hover);
+// button9.addEventListener('mouseover', notes.gSharp3Hover);
+// button10.addEventListener('mouseover', notes.a4Hover);
+// button11.addEventListener('mouseover', notes.aSharp4Hover);
+// button12.addEventListener('mouseover', notes.b4Hover);
+// button13.addEventListener('mouseover', notes.c4Hover);
+// button14.addEventListener('mouseover', notes.cSharp4Hover);
+// button15.addEventListener('mouseover', notes.d4Hover);
+// button16.addEventListener('mouseover', notes.dSharp4Hover);
 
-allBtns.forEach(button => {
-    button.addEventListener('click', e => setActive(e.target))
-});
-
-export function setActive(button) {
-    button.classList.toggle('active');
-}
-
-function setInactive() {
-    allBtns.forEach(button => {
-        button.classList.remove('active');
-    });
-}
-
-export let button1 = document.querySelector('#btn-1');
-export let button2 = document.querySelector('#btn-2');
-export let button3 = document.querySelector('#btn-3');
-export let button4 = document.querySelector('#btn-4');
-export let button5 = document.querySelector('#btn-5');
-export let button6 = document.querySelector('#btn-6');
-export let button7 = document.querySelector('#btn-7');
-export let button8 = document.querySelector('#btn-8');
-export let button9 = document.querySelector('#btn-9');
-export let button10 = document.querySelector('#btn-10');
-export let button11 = document.querySelector('#btn-11');
-export let button12 = document.querySelector('#btn-12');
-export let button13 = document.querySelector('#btn-13');
-export let button14 = document.querySelector('#btn-14');
-export let button15 = document.querySelector('#btn-15');
-export let button16 = document.querySelector('#btn-16');
-
-button1.addEventListener('mouseover', notes.c3Hover);
-button2.addEventListener('mouseover', notes.cSharp3Hover);
-button3.addEventListener('mouseover', notes.d3Hover);
-button4.addEventListener('mouseover', notes.dSharp3Hover);
-button5.addEventListener('mouseover', notes.e3Hover);
-button6.addEventListener('mouseover', notes.f3Hover);
-button7.addEventListener('mouseover', notes.fSharp3Hover);
-button8.addEventListener('mouseover', notes.g3Hover);
-button9.addEventListener('mouseover', notes.gSharp3Hover);
-button10.addEventListener('mouseover', notes.a4Hover);
-button11.addEventListener('mouseover', notes.aSharp4Hover);
-button12.addEventListener('mouseover', notes.b4Hover);
-button13.addEventListener('mouseover', notes.c4Hover);
-button14.addEventListener('mouseover', notes.cSharp4Hover);
-button15.addEventListener('mouseover', notes.d4Hover);
-button16.addEventListener('mouseover', notes.dSharp4Hover);
-
-button1.addEventListener('click', notes.c3Click);
-button2.addEventListener('click', notes.cSharp3Click);
-button3.addEventListener('click', notes.d3Click);
-button4.addEventListener('click', notes.dSharp3Click);
-button5.addEventListener('click', notes.e3Click);
-button6.addEventListener('click', notes.f3Click);
-button7.addEventListener('click', notes.fSharp3Click);
-button8.addEventListener('click', notes.g3Click);
-button9.addEventListener('click', notes.gSharp3Click);
-button10.addEventListener('click', notes.a4Click);
-button11.addEventListener('click', notes.aSharp4Click);
-button12.addEventListener('click', notes.b4Click);
-button13.addEventListener('click', notes.c4Click);
-button14.addEventListener('click', notes.cSharp4Click);
-button15.addEventListener('click', notes.d4Click);
-button16.addEventListener('click', notes.dSharp4Click);
+button1.addEventListener('click', notes.c3);
+button2.addEventListener('click', notes.cSharp3);
+button3.addEventListener('click', notes.d3);
+button4.addEventListener('click', notes.dSharp3);
+button5.addEventListener('click', notes.e3);
+button6.addEventListener('click', notes.f3);
+button7.addEventListener('click', notes.fSharp3);
+button8.addEventListener('click', notes.g3);
+button9.addEventListener('click', notes.gSharp3);
+button10.addEventListener('click', notes.a4);
+button11.addEventListener('click', notes.aSharp4);
+button12.addEventListener('click', notes.b4);
+button13.addEventListener('click', notes.c4);
+button14.addEventListener('click', notes.cSharp4);
+button15.addEventListener('click', notes.d4);
+button16.addEventListener('click', notes.dSharp4);
 
 //---------------------------------------------------
 // Introducing game functionality
 
-// window.addEventListener('load', playRandomSequence());
+window.addEventListener('load', playRandomSequence());
 
 function playRandomSequence() {
-    generateArrayOfNotes(level);
+    generateRandomSequence(level);
     notes.sequence(currentSequence);
+    lightingKeys();
 }
 
 function checkInput() {
     if (userInput.length != currentSequence.length) {
         userInput = [];
-        setInactive();
+        setInactive(allBtns);
         return false;
     }
     for (let i = 0; i < userInput.length; i++) {
         if (userInput[i] != currentSequence[i]) {
                 userInput = [];
-                setInactive();
+                setInactive(allBtns);
                 return false;
         } 
     }
@@ -187,7 +224,7 @@ function checkInput() {
 function nextLevel() {
     level++;
     playRandomSequence();
-    setInactive();
+    setInactive(allBtns);
     userInput = [];
 }
 
