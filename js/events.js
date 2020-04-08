@@ -23,23 +23,6 @@ export const board = [
 //---------------------------------------------
 // Work on sequences
 
-// const sequences = [
-//     ['D3', 'G3', 'D4'],
-//     ['D3', 'G3', 'D4', 'C4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3']
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3']
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3', 'D4']
-// ];
-
-// Generating random sequences
-
-// let randomNote = board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)];
-
 // Generating random sequences
 
 function generateArrayOfNotes(level) {
@@ -51,13 +34,7 @@ function generateArrayOfNotes(level) {
     console.log(arrayOfNotes);
     sequences.push(arrayOfNotes);
     currentSequence = sequences[level - 1];
-    console.log(currentSequence);
-    console.log(sequences);
 }
-
-// generateArrayOfNotes(level);
-// generateArrayOfNotes();
-// generateArrayOfNotes();
 
 //---------------------------------------------
 // Lighting up buttons (active class) when each note of the sequence is played
@@ -184,29 +161,14 @@ button16.addEventListener('click', notes.dSharp4Click);
 //---------------------------------------------------
 // Introducing game functionality
 
-// window.addEventListener('load', playSequence(level));
-
-// function playSequence(level) {
-//     console.log('Passing sound');
-//     notes.sequence(sequences[level - 1]);
-// }
-
 // window.addEventListener('load', playRandomSequence());
 
-playRandomSequence();
-
 function playRandomSequence() {
-    console.log(level);
     generateArrayOfNotes(level);
-    console.log(sequences);
-    console.log(currentSequence);
     notes.sequence(currentSequence);
 }
 
 function checkInput() {
-    //vérifier si level existe bien
-    // console.log(userInput);
-    // console.log(sequences[level - 1]);
     if (userInput.length != currentSequence.length) {
         userInput = [];
         setInactive();
@@ -224,8 +186,6 @@ function checkInput() {
 
 function nextLevel() {
     level++;
-    console.log(level);
-    console.log(sequences);
     playRandomSequence();
     setInactive();
     userInput = [];

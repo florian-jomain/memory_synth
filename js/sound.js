@@ -229,14 +229,12 @@ class notesClass {
     }
 
     sequence(sequence) {
-        console.log(sequence);
         let seq = new Tone.Sequence((time, note) => {
             synth.triggerAttackRelease(note, '4n', time);
         }, sequence, '4n');
-        console.log(seq);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
-        seq.start(1);
+        seq.start();
         Tone.Transport.start();
     }
 
