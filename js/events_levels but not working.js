@@ -2,69 +2,24 @@ import { notesClass } from './sound.js';
 
 let notes = new notesClass();
 
-export let level = 1;
+let level = 1;
 
 export let userInput = [];
 
-export let sequences = [];
-
-//---------------------------------------------
-// Mapping whole keyboard to array
-
-export const board = [
-    ['C3', 'C#3', 'D3', 'D#3'],
-    ['E3', 'F3', 'F#3', 'G3'],
-    ['G#3', 'A4', 'A#4', 'B4'],
-    ['C4', 'C#4', 'D4', 'D#4']
+const sequences = [
+    ['D3', 'G3', 'D4'],
+    ['D3', 'G3', 'D4', 'C4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3'],
+    ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3', 'D4']
 ];
 
-//---------------------------------------------
-// Work on sequences
-
-// const sequences = [
-//     ['D3', 'G3', 'D4'],
-//     ['D3', 'G3', 'D4', 'C4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3']
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4'],
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3']
-//     ['D3', 'G3', 'D4', 'C4', 'D4', 'D3', 'A3', 'A#3', 'C4', 'D4', 'D3', 'D4']
-// ];
-
-// Generating random sequences
-
-// let randomNote = board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)];
-
-// Generating random sequences
-
-function generateArrayOfNotes() {
-    let arrayOfNotes = [];
-    for (let i = 0; i < level + 2; i++) {
-        let randomNote = board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)];
-        arrayOfNotes.push(randomNote);
-    }
-    console.log(arrayOfNotes);
-    // lightUpButtons();
-    sequences.push(arrayOfNotes);
-    console.log(sequences);
-}
-
-// generateArrayOfNotes();
-// generateArrayOfNotes();
-// generateArrayOfNotes();
-
-//---------------------------------------------
-// Lighting up buttons (active class) when each note of the sequence is played
-
-// function lightUpButtons(sequence) {
-
-// }
-
-
-
+console.log(sequences[level][0]);
 
 
 
@@ -105,8 +60,8 @@ const displayLevel = {
     10: '| | | | | | | | | | |'
 }
 
-// let title = document.querySelector('h1');
-//     title.innerHTML = displayLevel[`${level}`];
+let title = document.querySelector('h1');
+    title.innerHTML = displayLevel[`${level}`];
 
 //---------------------------------------------
 // Button events
@@ -117,7 +72,7 @@ allBtns.forEach(button => {
     button.addEventListener('click', e => setActive(e.target))
 });
 
-export function setActive(button) {
+function setActive(button) {
     button.classList.toggle('active');
 }
 
@@ -127,22 +82,22 @@ function setInactive() {
     });
 }
 
-export let button1 = document.querySelector('#btn-1');
-export let button2 = document.querySelector('#btn-2');
-export let button3 = document.querySelector('#btn-3');
-export let button4 = document.querySelector('#btn-4');
-export let button5 = document.querySelector('#btn-5');
-export let button6 = document.querySelector('#btn-6');
-export let button7 = document.querySelector('#btn-7');
-export let button8 = document.querySelector('#btn-8');
-export let button9 = document.querySelector('#btn-9');
-export let button10 = document.querySelector('#btn-10');
-export let button11 = document.querySelector('#btn-11');
-export let button12 = document.querySelector('#btn-12');
-export let button13 = document.querySelector('#btn-13');
-export let button14 = document.querySelector('#btn-14');
-export let button15 = document.querySelector('#btn-15');
-export let button16 = document.querySelector('#btn-16');
+let button1 = document.querySelector('#btn-1');
+let button2 = document.querySelector('#btn-2');
+let button3 = document.querySelector('#btn-3');
+let button4 = document.querySelector('#btn-4');
+let button5 = document.querySelector('#btn-5');
+let button6 = document.querySelector('#btn-6');
+let button7 = document.querySelector('#btn-7');
+let button8 = document.querySelector('#btn-8');
+let button9 = document.querySelector('#btn-9');
+let button10 = document.querySelector('#btn-10');
+let button11 = document.querySelector('#btn-11');
+let button12 = document.querySelector('#btn-12');
+let button13 = document.querySelector('#btn-13');
+let button14 = document.querySelector('#btn-14');
+let button15 = document.querySelector('#btn-15');
+let button16 = document.querySelector('#btn-16');
 
 button1.addEventListener('mouseover', notes.c3Hover);
 button2.addEventListener('mouseover', notes.cSharp3Hover);
@@ -183,46 +138,36 @@ button16.addEventListener('click', notes.dSharp4Click);
 
 // window.addEventListener('load', playSequence(level));
 
-// function playSequence(level) {
-//     console.log('Passing sound');
-//     notes.sequence(sequences[level - 1]);
-// }
+let currentSequence = sequences[level - 1];
 
-window.addEventListener('load', playRandomSequence());
-
-function playRandomSequence() {
-    generateArrayOfNotes();
-    console.log(sequences);
+function playSequence(currentSequence) {
     console.log('Passing sound');
-    console.log(sequences[level - 1]);
-    notes.sequence(sequences[level - 1]);
+    notes.sequence(currentSequence);
+    console.log('Coucou');
 }
 
 function checkInput() {
     //vérifier si level existe bien
-    // console.log(userInput);
-    // console.log(sequences[level - 1]);
-    if (userInput.length != sequences[level - 1].length) {
+    if (userInput.length != currentSequence.length) {
         userInput = [];
         setInactive();
         return false;
     }
     for (let i = 0; i < userInput.length; i++) {
-        if (userInput[i] != sequences[level - 1][i]) {
+        if (userInput[i] != currentSequence[i]) {
                 userInput = [];
                 setInactive();
                 return false;
         } 
     }
+    //Need to add button blinking function
+
     nextLevel();
 }
 
 function nextLevel() {
-    level++;
-    generateArrayOfNotes();
-    console.log(level);
-    console.log(sequences);
-    playRandomSequence();
+    level += 1;
+    playSequence(currentSequence);
     setInactive();
     userInput = [];
 }

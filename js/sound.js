@@ -52,170 +52,188 @@ const synth = new Tone.Synth({
     }
 });
 
-let reverb = new Tone.Reverb({
-    decay: 10,
-    preDelay: 0.05
-});
-reverb.generate();
+// let reverb = new Tone.Reverb({
+//     decay: 10,
+//     preDelay: 0.05
+// });
+// reverb.generate();
 
-synth.chain(reverb, gain);
-// synth.connect(gain); // to plug off reverb
+// synth.chain(reverb, gain);
+synth.connect(gain); // to plug off reverb
 
 //----------------------------------------------------------
 //Singular tone functions
 
-import { userInput } from './events.js';
+import { level, board, sequences, userInput, setActive, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 } from './events.js';
 
 class notesClass {
 
     c3Click() {
+        setActive(button1);
         userInput.push('C3');
         console.log(userInput);
     }
 
     cSharp3Click() {
+        setActive(button2);
         userInput.push('C#3');
         console.log(userInput);
     }
 
     d3Click() {
+        setActive(button3);
         userInput.push('D3');
         console.log(userInput);
     }
 
     dSharp3Click() {
+        setActive(button4);
         userInput.push('D#3');
         console.log(userInput);
     }
 
     e3Click() {
+        setActive(button5);
         userInput.push('E3');
         console.log(userInput);
     }
 
     f3Click() {
+        setActive(button6);
         userInput.push('F3');
         console.log(userInput);
     }
 
     fSharp3Click() {
+        setActive(button7);
         userInput.push('F#3');
         console.log(userInput);
     }
 
     g3Click() {
+        setActive(button8);
         userInput.push('G3');
         console.log(userInput);
     }
 
     gSharp3Click() {
+        setActive(button9);
         userInput.push('G#3');
         console.log(userInput);
     }
 
     a4Click() {
+        setActive(button10);
         userInput.push('A4');
         console.log(userInput);
     }
 
     aSharp4Click() {
+        setActive(button11);
         userInput.push('A#4');
         console.log(userInput);
     }
 
     b4Click() {
+        setActive(button12);
         userInput.push('B4');
         console.log(userInput);
     }
 
     c4Click() {
+        setActive(button13);
         userInput.push('C4');
         console.log(userInput);
     }
 
     cSharp4Click() {
+        setActive(button14);
         userInput.push('C#4');
         console.log(userInput);
     }
 
     d4Click() {
+        setActive(button15);
         userInput.push('D4');
         console.log(userInput);
     }
 
     dSharp4Click() {
+        setActive(button16);
         userInput.push('D#4');
         console.log(userInput);
     }
 
     c3Hover() {
-        synth.triggerAttackRelease('C3', '8n');
+        synth.triggerAttackRelease('C3', '4n');
     }
 
     cSharp3Hover() {
-        synth.triggerAttackRelease('C#3', '8n');
+        synth.triggerAttackRelease('C#3', '4n');
     }
 
     d3Hover() {
-        synth.triggerAttackRelease('D3', '8n');
+        synth.triggerAttackRelease('D3', '4n');
     }
 
     dSharp3Hover() {
-        synth.triggerAttackRelease('D#3', '8n');
+        synth.triggerAttackRelease('D#3', '4n');
     }
 
     e3Hover() {
-        synth.triggerAttackRelease('E3', '8n');
+        synth.triggerAttackRelease('E3', '4n');
     }
 
     f3Hover() {
-        synth.triggerAttackRelease('F3', '8n');
+        synth.triggerAttackRelease('F3', '4n');
     }
 
     fSharp3Hover() {
-        synth.triggerAttackRelease('F#3', '8n');
+        synth.triggerAttackRelease('F#3', '4n');
     }
 
     g3Hover() {
-        synth.triggerAttackRelease('G3', '8n');
+        synth.triggerAttackRelease('G3', '4n');
     }
 
     gSharp3Hover() {
-        synth.triggerAttackRelease('G#3', '8n');
+        synth.triggerAttackRelease('G#3', '4n');
     }
 
     a4Hover() {
-        synth.triggerAttackRelease('A4', '8n');
+        synth.triggerAttackRelease('A4', '4n');
     }
 
     aSharp4Hover() {
-        synth.triggerAttackRelease('A#4', '8n');
+        synth.triggerAttackRelease('A#4', '4n');
     }
 
     b4Hover() {
-        synth.triggerAttackRelease('B4', '8n');
+        synth.triggerAttackRelease('B4', '4n');
     }
 
     c4Hover() {
-        synth.triggerAttackRelease('C4', '8n');
+        synth.triggerAttackRelease('C4', '4n');
     }
 
     cSharp4Hover() {
-        synth.triggerAttackRelease('C#4', '8n');
+        synth.triggerAttackRelease('C#4', '4n');
     }
 
     d4Hover() {
-        synth.triggerAttackRelease('D4', '8n');
+        synth.triggerAttackRelease('D4', '4n');
     }
 
     dSharp4Hover() {
-        synth.triggerAttackRelease('D#4', '8n');
+        synth.triggerAttackRelease('D#4', '4n');
     }
 
     sequence(sequence) {
+        console.log(sequence);
         let seq = new Tone.Sequence((time, note) => {
-            synth.triggerAttackRelease(note, '8n', time);
+            synth.triggerAttackRelease(note, '4n', time);
         }, sequence, '4n');
+        console.log(seq);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start(0);
