@@ -236,7 +236,7 @@ class notesClass {
         console.log(seq);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
-        seq.start(0);
+        seq.start(1);
         Tone.Transport.start();
     }
 

@@ -8,6 +8,8 @@ export let userInput = [];
 
 export let sequences = [];
 
+let currentSequence = [];
+
 //---------------------------------------------
 // Mapping whole keyboard to array
 
@@ -40,19 +42,20 @@ export const board = [
 
 // Generating random sequences
 
-function generateArrayOfNotes() {
+function generateArrayOfNotes(level) {
     let arrayOfNotes = [];
     for (let i = 0; i < level + 2; i++) {
         let randomNote = board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)];
         arrayOfNotes.push(randomNote);
     }
     console.log(arrayOfNotes);
-    // lightUpButtons();
     sequences.push(arrayOfNotes);
+    currentSequence = sequences[level - 1];
+    console.log(currentSequence);
     console.log(sequences);
 }
 
-// generateArrayOfNotes();
+// generateArrayOfNotes(level);
 // generateArrayOfNotes();
 // generateArrayOfNotes();
 
@@ -188,27 +191,29 @@ button16.addEventListener('click', notes.dSharp4Click);
 //     notes.sequence(sequences[level - 1]);
 // }
 
-window.addEventListener('load', playRandomSequence());
+// window.addEventListener('load', playRandomSequence());
+
+playRandomSequence();
 
 function playRandomSequence() {
-    generateArrayOfNotes();
+    console.log(level);
+    generateArrayOfNotes(level);
     console.log(sequences);
-    console.log('Passing sound');
-    console.log(sequences[level - 1]);
-    notes.sequence(sequences[level - 1]);
+    console.log(currentSequence);
+    notes.sequence(currentSequence);
 }
 
 function checkInput() {
     //vérifier si level existe bien
     // console.log(userInput);
     // console.log(sequences[level - 1]);
-    if (userInput.length != sequences[level - 1].length) {
+    if (userInput.length != currentSequence.length) {
         userInput = [];
         setInactive();
         return false;
     }
     for (let i = 0; i < userInput.length; i++) {
-        if (userInput[i] != sequences[level - 1][i]) {
+        if (userInput[i] != currentSequence[i]) {
                 userInput = [];
                 setInactive();
                 return false;
@@ -219,7 +224,6 @@ function checkInput() {
 
 function nextLevel() {
     level++;
-    generateArrayOfNotes();
     console.log(level);
     console.log(sequences);
     playRandomSequence();
