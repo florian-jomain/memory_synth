@@ -25,12 +25,16 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: black;
+  background-color: whitesmoke;
   margin: 40px;
   font-weight: bolder;
   font-size: 18px;
   text-align: center;
   line-height: 50px;
+}
+
+.button:hover{
+  box-shadow: 0 0 5px 5px rgb(200, 200, 200);
 }
 
 .button.active {
@@ -49,8 +53,8 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: gold;
-  box-shadow: 0 0 10px 10px gold;
+  background-color: blue;
+  box-shadow: 0 0 10px 10px blue;
   animation: 10s linear infinite pulsateBtn;
   margin-top: 80px;
 }

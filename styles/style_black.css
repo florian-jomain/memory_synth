@@ -33,6 +33,10 @@ body {
   line-height: 50px;
 }
 
+.button:hover {
+  box-shadow: 0 0 5px 5px rgb(40, 40, 40);
+}
+
 .button.active {
   width: 150px;
   height: 150px;
@@ -48,7 +52,6 @@ body {
 #validate-button {
   width: 20px;
   height: 20px;
-  opacity: 0.8;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 10px 10px blue;

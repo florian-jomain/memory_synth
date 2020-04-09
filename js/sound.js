@@ -163,6 +163,7 @@ class notesClass {
             Tone.Draw.schedule(() => {
                 currentButton.classList.add('active');
             }, time);
+            // setInactive(allBtns);
             window.setInterval(setInactive, 600, allBtns);
         }, sequence, '4n');
         seq.loop = false;
