@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="./js/events.js"></script>
-    <link rel="stylesheet" href="./styles/style_1_radio_white.css">
+    <link rel="stylesheet" href="./styles/style_hp.css">
+    <script src="./js/tone_api.js"></script>
+    <script type="module" src="./js/background_noise.js"></script>
     <title>Homepage</title>
 </head>
 <body>
-    <!-- <h1>Placeholder text</h1> -->
-    <div class="container">
-        <div class="main-button"></div>
+    <div class="black">
+        <div id="black-button" onclick="window.location='./board_black.html';"></div>
+    </div>
+
+    <div class="white">
+        <div id="white-button" onclick="window.location='./board_white.html';"></div>
     </div>
 </body>
 </html>
+

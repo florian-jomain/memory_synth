@@ -1,12 +1,6 @@
-/* @import url("https://fonts.googleapis.com/css?family=Roboto:100,400,500&display=swap"); */
-
 * {
   box-sizing: border-box;
 }
-
-/* html {
-  font-family: "Roboto", sans-serif;
-} */
 
 body {
   margin: 0;
@@ -19,17 +13,9 @@ body {
   flex-direction: column;
 }
 
-h1 {
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: lighter;
-    color: white;
-    margin-bottom: 100px;
-}
-
 .container{
     width: 1000px;
-    height: auto;
+    height: 80vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -50,81 +36,26 @@ h1 {
   line-height: 50px;
 }
 
-.button.active:nth-child(1) {
+.button.active {
   width: 150px;
   height: 150px;
   background-color: black;
-  box-shadow: 0 0 5px 5px red;
+  box-shadow: 0 0 5px 5px white;
   margin: 40px;
   font-weight: bolder;
   font-size: 18px;
   text-align: center;
   line-height: 50px;
 }
-
-.button.active:nth-child(2) {
-  width: 150px;
-  height: 150px;
-  background-color: black;
-  box-shadow: 0 0 5px 5px blue;
-  margin: 40px;
-  font-weight: bolder;
-  font-size: 18px;
-  text-align: center;
-  line-height: 50px;
-}
-
-.button.active:nth-child(3) {
-  width: 150px;
-  height: 150px;
-  background-color: black;
-  box-shadow: 0 0 5px 5px yellow;
-  margin: 40px;
-  font-weight: bolder;
-  font-size: 18px;
-  text-align: center;
-  line-height: 50px;
-}
-
-.button.active:nth-child(4) {
-  width: 150px;
-  height: 150px;
-  background-color: black;
-  box-shadow: 0 0 5px 5px green;
-  margin: 40px;
-  font-weight: bolder;
-  font-size: 18px;
-  text-align: center;
-  line-height: 50px;
-}
-
-/* #repeat-button {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: gold;
-  box-shadow: 0 0 10px 10px gold;
-  animation: 10s linear infinite pulsateBtn;
-  margin-bottom: 100px;
-} */
 
 #validate-button {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: lime;
-  box-shadow: 0 0 10px 10px lime;
+  background-color: blue;
+  box-shadow: 0 0 10px 10px blue;
   animation: 10s linear infinite pulsateBtn;
   margin-top: 100px;
-}
-
-@keyframes appearBtn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes pulsateBtn {

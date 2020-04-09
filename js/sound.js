@@ -5,36 +5,13 @@ let started = null;
 window.addEventListener('click', () => {
   if (started) return;
   started = true;
-})
+});
 
 //----------------------------------------------------------
 //Generic variables
 
 const gain = new Tone.Gain(0.1);
 gain.toMaster();
-
-//----------------------------------------------------------
-// Background sound functions
-
-// let noise = new Tone.Noise('white');
-// let oscillator = new Tone.Oscillator(65, 'sine');
-
-// let lowPassFilter = new Tone.LowpassCombFilter(0.1, 1, 100);
-
-// // let reverb = new Tone.Reverb({
-// //     decay: 0.5,
-// //     preDelay: 0.05
-// // });
-
-// // reverb.generate();
-
-// // noise.chain(bitCrusher, gain);
-
-// // let bitCrusher = new Tone.BitCrusher(6);
-
-// // oscillator.chain(bitCrusher, gain);
-// oscillator.connect(gain);
-// gain.toMaster();
 
 //----------------------------------------------------------
 // Randomize synth oscillator values
@@ -206,7 +183,7 @@ class notesClass {
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start();
-        Tone.Transport.start();
+        Tone.Transport.start(2);
     }
 
     background() {
