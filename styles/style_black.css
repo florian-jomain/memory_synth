@@ -14,7 +14,7 @@ body {
 }
 
 .container{
-    width: 1000px;
+    width: 80vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,41 +22,33 @@ body {
 }
 
 .button {
-  width: 150px;
-  height: 150px;
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
   background-color: black;
   margin: 40px;
-  font-weight: bolder;
-  font-size: 18px;
-  text-align: center;
-  line-height: 50px;
-}
 
 .button:hover {
-  box-shadow: 0 0 5px 5px rgb(40, 40, 40);
+  box-shadow: 0 0 5px 5px rgb(50, 50, 50);
 }
 
 .button.active {
-  width: 150px;
-  height: 150px;
+  width: 5vw;
+  height: 5vw;
   background-color: black;
-  box-shadow: 0 0 5px 5px white;
+  box-shadow: 0 0 20px 5px white;
   margin: 40px;
-  font-weight: bolder;
-  font-size: 18px;
-  text-align: center;
-  line-height: 50px;
 }
 
 #validate-button {
-  width: 20px;
-  height: 20px;
+  width: 2vw;
+  height: 2vw;
+  opacity: 0.8;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 10px 10px blue;
   animation: 10s linear infinite pulsateBtn;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 @keyframes pulsateBtn {
