@@ -41,7 +41,7 @@ h1 {
   height: 150px;
   border-radius: 50%;
   color: white;
-  background-color: white;
+  background-color: black;
   box-shadow: 0 0 5px 5px black;
   margin: 40px;
   font-weight: bolder;
@@ -50,11 +50,47 @@ h1 {
   line-height: 50px;
 }
 
-.button.active {
+.button.active:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  box-shadow: 0 0 5px 5px red;
+  margin: 40px;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.button.active:nth-child(2) {
   width: 150px;
   height: 150px;
   background-color: black;
   box-shadow: 0 0 5px 5px blue;
+  margin: 40px;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.button.active:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  box-shadow: 0 0 5px 5px yellow;
+  margin: 40px;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.button.active:nth-child(4) {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  box-shadow: 0 0 5px 5px green;
   margin: 40px;
   font-weight: bolder;
   font-size: 18px;
