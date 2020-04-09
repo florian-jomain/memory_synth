@@ -27,8 +27,9 @@ body {
   border-radius: 50%;
   background-color: black;
   margin: 40px;
+}
 
-.button:hover {
+.button:hover{
   box-shadow: 0 0 5px 5px rgb(50, 50, 50);
 }
 
