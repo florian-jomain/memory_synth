@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   started = true;
 });
 
-const gain = new Tone.Gain(0.6);
+const gain = new Tone.Gain(0.1);
 gain.toMaster();
 
 const phaser = new Tone.Phaser({
@@ -16,22 +16,60 @@ const phaser = new Tone.Phaser({
     'baseFrequency': 350
 }).connect(gain);
 
-const reverb = new Tone.Reverb({
-    decay: 10,
-    preDelay: 0.05
-});
+// const reverb = new Tone.JCReverb({
+//     decay: 10,
+//     preDelay: 0.05
+// });
 
-reverb.generate();
+// reverb.generate();
+
+const jcReverb = new Tone.JCReverb(4);
 
 // const whiteNoise = new Tone.Noise({
 //     type: 'white',
 //     fadeIn: 2,
 // }).connect(phaser).connect(reverb).connect(gain).start(1.5);
 
-const oscillator = new Tone.OmniOscillator({
-    frequency : 20 ,
-    detune : 0.1 ,
-    phase : 0.1,
-    width: 0.1,
-    volume: -1
-}).connect(phaser).connect(reverb).connect(gain).start(1);
+// const oscillator = new Tone.OmniOscillator({
+//     frequency : 20 ,
+//     detune : 0.1 ,
+//     phase : 0.1,
+//     width: 0.1,
+//     volume: -1
+// }).connect(phaser).connect(reverb).connect(gain).start(1);
+
+const fmSynth = new Tone.FMSynth({
+    harmonicity : 7 ,
+    modulationIndex : 0.5 ,
+    detune : 0 ,
+    oscillator : {
+    type : 'sine'
+    } ,
+    envelope : {
+    attack : 0.01 ,
+    decay : 0.01 ,
+    sustain : 1 ,
+    release : 0.5
+    } ,
+    modulation : {
+    type : 'square'
+    } ,
+    modulationEnvelope : {
+    attack : 0.5 ,
+    decay : 0 ,
+    sustain : 1 ,
+    release : 0.5
+    }
+});
+
+fmSynth.chain(jcReverb, gain);
+
+// fmSynth.triggerAttack('D2', '2n');
+
+const bgdSequence = new Tone.Sequence((time, note) => {
+    fmSynth.triggerAttack(note, '32n', time);
+}, ['D1', 'G1', 'D2', 'C2', 'D2'], '32n');
+
+bgdSequence.start();
+
+Tone.Transport.start();
