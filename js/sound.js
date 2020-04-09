@@ -51,7 +51,7 @@ let reverb = new Tone.Reverb({
 reverb.generate();
 
 synth.chain(reverb, gain);
-// synth.connect(gain); // to plug off reverb
+// synth.connect(gain); // plug off reverb
 
 //----------------------------------------------------------
 //Singular tone functions
@@ -64,112 +64,96 @@ class notesClass {
         synth.triggerAttackRelease('C3', '4n');
         setActive(button1);
         userInput.push('C3');
-        console.log(`User input: ${userInput}`);
     }
 
     cSharp3() {
         synth.triggerAttackRelease('C#3', '4n');
         setActive(button2);
         userInput.push('C#3');
-        console.log(`User input: ${userInput}`);
     }
 
     d3() {
         synth.triggerAttackRelease('D3', '4n');
         setActive(button3);
         userInput.push('D3');
-        console.log(`User input: ${userInput}`);
     }
 
     dSharp3() {
         synth.triggerAttackRelease('D#3', '4n');
         setActive(button4);
         userInput.push('D#3');
-        console.log(`User input: ${userInput}`);
     }
 
     e3() {
         synth.triggerAttackRelease('E3', '4n');
         setActive(button5);
         userInput.push('E3');
-        console.log(`User input: ${userInput}`);
     }
 
     f3() {
         synth.triggerAttackRelease('F3', '4n');
         setActive(button6);
         userInput.push('F3');
-        console.log(`User input: ${userInput}`);
     }
 
     fSharp3() {
         synth.triggerAttackRelease('F#3', '4n');
         setActive(button7);
         userInput.push('F#3');
-        console.log(`User input: ${userInput}`);
     }
 
     g3() {
         synth.triggerAttackRelease('G3', '4n');
         setActive(button8);
         userInput.push('G3');
-        console.log(`User input: ${userInput}`);
     }
 
     gSharp3() {
         synth.triggerAttackRelease('G#3', '4n');
         setActive(button9);
         userInput.push('G#3');
-        console.log(`User input: ${userInput}`);
     }
 
     a3() {
         synth.triggerAttackRelease('A3', '4n');
         setActive(button10);
         userInput.push('A3');
-        console.log(`User input: ${userInput}`);
     }
 
     aSharp3() {
         synth.triggerAttackRelease('A#3', '4n');
         setActive(button11);
         userInput.push('A#3');
-        console.log(`User input: ${userInput}`);
     }
 
     b3() {
         synth.triggerAttackRelease('B3', '4n');
         setActive(button12);
         userInput.push('B3');
-        console.log(`User input: ${userInput}`);
     }
 
     c4() {
         synth.triggerAttackRelease('C4', '4n');
         setActive(button13);
         userInput.push('C4');
-        console.log(`User input: ${userInput}`);
     }
 
     cSharp4() {
         synth.triggerAttackRelease('C#4', '4n');
         setActive(button14);
         userInput.push('C#4');
-        console.log(`User input: ${userInput}`);
     }
 
     d4() {
         synth.triggerAttackRelease('D4', '4n');
         setActive(button15);
         userInput.push('D4');
-        console.log(`User input: ${userInput}`);
     }
 
     dSharp4() {
         synth.triggerAttackRelease('D#4', '4n');
         setActive(button16);
         userInput.push('D#4');
-        console.log(`User input: ${userInput}`);
     }
 
     sequence(sequence) {

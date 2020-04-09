@@ -15,7 +15,6 @@ body {
 
 .container{
     width: 1000px;
-    height: 80vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -28,7 +27,6 @@ body {
   border-radius: 50%;
   color: white;
   background-color: black;
-  box-shadow: 0 0 5px 5px black;
   margin: 40px;
   font-weight: bolder;
   font-size: 18px;
@@ -40,7 +38,7 @@ body {
   width: 150px;
   height: 150px;
   background-color: black;
-  box-shadow: 0 0 5px 5px white;
+  box-shadow: 0 0 20px 5px white;
   margin: 40px;
   font-weight: bolder;
   font-size: 18px;
@@ -51,6 +49,7 @@ body {
 #validate-button {
   width: 20px;
   height: 20px;
+  opacity: 0.8;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 10px 10px blue;
