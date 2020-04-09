@@ -5,7 +5,7 @@ window.addEventListener('click', () => {
   started = true;
 });
 
-const gain = new Tone.Gain(0.005);
+const gain = new Tone.Gain(0.001);
 gain.toMaster();
 
 const phaser = new Tone.Phaser({

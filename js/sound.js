@@ -156,8 +156,8 @@ class notesClass {
         userInput.push('D#4');
     }
 
-    sequence(sequence) {
-        let seq = new Tone.Sequence((time, note) => {
+    async sequence(sequence) {
+        await let seq = new Tone.Sequence((time, note) => {
             synth.triggerAttackRelease(note, '4n', time);
             Tone.Draw.schedule(() => {
                 boardButtons[note].classList.add('active');
