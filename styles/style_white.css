@@ -15,7 +15,6 @@ body {
 
 .container{
   width: 1000px;
-  max-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -53,7 +52,7 @@ body {
   background-color: gold;
   box-shadow: 0 0 10px 10px gold;
   animation: 10s linear infinite pulsateBtn;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 @keyframes pulsateBtn {
