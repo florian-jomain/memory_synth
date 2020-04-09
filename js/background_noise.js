@@ -8,6 +8,9 @@ window.addEventListener('load', () => {
 const gain = new Tone.Gain(0.1);
 gain.toMaster();
 
+const lowerGain = new Tone.Gain(0.05);
+lowerGain.toMaster();
+
 const phaser = new Tone.Phaser({
     'frequency': 0.1,
     'octaves': 5,
@@ -24,6 +27,8 @@ const phaser = new Tone.Phaser({
 // reverb.generate();
 
 const jcReverb = new Tone.JCReverb(4);
+
+const avgGain = new Tone.EqualPowerGain();
 
 // const whiteNoise = new Tone.Noise({
 //     type: 'white',
@@ -66,10 +71,54 @@ fmSynth.chain(jcReverb, gain);
 
 // fmSynth.triggerAttack('D2', '2n');
 
-const bgdSequence = new Tone.Sequence((time, note) => {
-    fmSynth.triggerAttack(note, '32n', time);
-}, ['D1', 'G1', 'D2', 'C2', 'D2'], '32n');
+const sequence1 = new Tone.Sequence((time, note) => {
+    fmSynth.triggerAttackRelease(note, '32n', time);
+}, ['D1', 'G1', 'D2', 'C2', 'D2', 'A2'], '32n');
 
-bgdSequence.start();
+sequence1.start();
 
-Tone.Transport.start();
+// const sequence2 = new Tone.Sequence((time, note) => {
+//     fmSynth.triggerAttackRelease(note, '32n', time);
+// }, ['D1', 'G1', 'D2', 'C2', 'D2', 'A2', 'A#2'], '32n');
+
+// sequence2.start(14);
+
+// const sequence3 = new Tone.Sequence((time, note) => {
+//     fmSynth.triggerAttackRelease(note, '32n', time);
+// }, ['D3', 'G3', 'D4', 'C4', 'D4', 'A4', 'A#4'], '32n');
+
+// sequence3.start(10);
+
+const amSynth = new Tone.AMSynth({
+	harmonicity : 3 ,
+	detune : 0 ,
+	oscillator : {
+    type : 'sine',
+    volume : -4
+	} ,
+	envelope : {
+	attack : 0.01 ,
+	decay : 0.01 ,
+	sustain : 1 ,
+	release : 0.5
+	} ,
+	modulation : {
+	type : 'square'
+	} ,
+	modulationEnvelope : {
+	attack : 0.5 ,
+	decay : 0 ,
+	sustain : 1 ,
+	release : 0.5
+	}
+});
+
+amSynth.connect(jcReverb).connect(gain);
+
+const sequence3 = new Tone.Sequence((time, note) => {
+    amSynth.triggerAttackRelease(note, '32n', time);
+}, ['D1']);
+
+sequence3.start(2);
+
+// Tone.Transport.start();

@@ -12,6 +12,15 @@ body {
   align-items: center;
 }
 
+#headphones {
+  width: 60px;
+  height: auto;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  top: 60px;
+}
+
 .black {
   width: 50vw;
   height: 100vh;
