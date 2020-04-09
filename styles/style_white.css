@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-color:whitesmoke;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ body {
 }
 
 .container{
-  width: 800px;
+  width: 1000px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -22,11 +22,11 @@ body {
 }
 
 .button {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   color: white;
-  background-color: whitesmoke;
+  background-color: black;
   margin: 40px;
   font-weight: bolder;
   font-size: 18px;
@@ -35,8 +35,8 @@ body {
 }
 
 .button.active {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: whitesmoke;
   box-shadow: 0 0 20px 5px black;
   margin: 40px;

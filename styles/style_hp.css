@@ -22,8 +22,8 @@ body {
 }
 
 #black-button {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: black;
   box-shadow: 0 0 5px 5px white;
@@ -43,8 +43,8 @@ body {
 }
 
 #white-button {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 0 5px 5px black;
