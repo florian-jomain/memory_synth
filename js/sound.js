@@ -10,7 +10,7 @@ window.addEventListener('click', () => {
 //----------------------------------------------------------
 //Generic variables
 
-const gain = new Tone.Gain(0.1);
+const gain = new Tone.Gain(0.3);
 gain.toMaster();
 
 //----------------------------------------------------------
@@ -163,8 +163,9 @@ class notesClass {
             Tone.Draw.schedule(() => {
                 currentButton.classList.add('active');
             }, time);
+            setInactive(allBtns);
         }, sequence, '4n');
-        window.setInterval(setInactive, 1000, allBtns);
+        // window.setInterval(setInactive, 1000, allBtns);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start();

@@ -5,11 +5,8 @@ window.addEventListener('load', () => {
   started = true;
 });
 
-const gain = new Tone.Gain(0.1);
+const gain = new Tone.Gain(0.05);
 gain.toMaster();
-
-const lowerGain = new Tone.Gain(0.05);
-lowerGain.toMaster();
 
 const phaser = new Tone.Phaser({
     'frequency': 0.1,
@@ -119,6 +116,6 @@ const sequence3 = new Tone.Sequence((time, note) => {
     amSynth.triggerAttackRelease(note, '32n', time);
 }, ['D1']);
 
-sequence3.start(2);
+sequence3.start(5);
 
-// Tone.Transport.start();
+Tone.Transport.start(2);
