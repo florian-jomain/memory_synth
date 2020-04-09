@@ -23,12 +23,9 @@ const reverb = new Tone.Reverb({
 
 reverb.generate();
 
-const whiteNoise = new Tone.Noise({
-    type: 'white',
-    fadeIn: 2,
-}).connect(phaser).connect(reverb).connect(gain).start(1.5);
+// const whiteNoise = new Tone.Noise({
+//     type: 'white',
+//     fadeIn: 2,
+// }).connect(phaser).connect(reverb).connect(gain).start(1.5);
 
-
-
-// document.getElementById('black-button').addEventListener('click', fadeOutSound);
-// document.getElementById('white-button').addEventListener('click', fadeOutSound);
+phaser.connect(reverb).connect(gain).start(1.5);
