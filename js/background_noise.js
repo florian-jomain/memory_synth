@@ -5,7 +5,7 @@ window.addEventListener('click', () => {
   started = true;
 });
 
-const gain = new Tone.Gain(0.001);
+const gain = new Tone.Gain(0.1);
 gain.toMaster();
 
 const phaser = new Tone.Phaser({
@@ -28,4 +28,10 @@ reverb.generate();
 //     fadeIn: 2,
 // }).connect(phaser).connect(reverb).connect(gain).start(1.5);
 
-phaser.connect(reverb).connect(gain).start(1.5);
+const oscillator = new Tone.OmniOscillator({
+    frequency : 60 ,
+    detune : 0.1 ,
+    phase : 0.1,
+    width: 0.1,
+    fadeIn: 2,
+}).connect(phaser).connect(reverb).connect(gain).start(1);
