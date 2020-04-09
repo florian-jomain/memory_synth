@@ -1,11 +1,11 @@
 // Web browsers are blocking audio context before user makes a gesture. This should fix it.
 let started = null;
-window.addEventListener('click', () => {
+window.addEventListener('load', () => {
   if (started) return;
   started = true;
 });
 
-const gain = new Tone.Gain(0.1);
+const gain = new Tone.Gain(0.6);
 gain.toMaster();
 
 const phaser = new Tone.Phaser({
@@ -29,9 +29,9 @@ reverb.generate();
 // }).connect(phaser).connect(reverb).connect(gain).start(1.5);
 
 const oscillator = new Tone.OmniOscillator({
-    frequency : 60 ,
+    frequency : 20 ,
     detune : 0.1 ,
     phase : 0.1,
     width: 0.1,
-    fadeIn: 2,
+    volume: -1
 }).connect(phaser).connect(reverb).connect(gain).start(1);

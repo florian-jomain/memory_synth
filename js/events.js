@@ -97,37 +97,11 @@ export function setInactive(array) {
 }
 
 //---------------------------------------------
-// Mapping DOM elements to CSS animations
-
-// // function moveBtn() {
-// //     mainBtn.style.transform = "translateY(-30em) scale(0.3)";
-// // }
-
-//---------------------------------------------
 // Validate button event
 
 let validateBtn = document.getElementById('validate-button');
 
 validateBtn.addEventListener('click', e => checkInput(e.target));
-
-//---------------------------------------------
-// Level event
-
-// const displayLevel = {
-//     1: '|',
-//     2: '| |',
-//     3: '| | |',
-//     4: '| | | |',
-//     5: '| | | | |',
-//     6: '| | | | | |',
-//     7: '| | | | | | |',
-//     8: '| | | | | | | |',
-//     9: '| | | | | | | | |',
-//     10: '| | | | | | | | | | |'
-// }
-
-// let title = document.querySelector('h1');
-//     title.innerHTML = displayLevel[`${level}`];
 
 //---------------------------------------------
 // Button events
@@ -186,13 +160,3 @@ function nextLevel() {
     playRandomSequence();
     userInput = [];
 }
-
-//---------------------------------------------------
-// Function to play background noise (deactivated for now)
-
-// backgroundBtn.addEventListener('mouseover', playBackground);
-
-// function playBackground() {
-//     backgroundBtn.classList.toggle("is-active");
-//     backgroundBtn.classList.contains("is-active") ? notes.background() : Tone.Transport.stop();
-// }

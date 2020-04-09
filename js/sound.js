@@ -158,22 +158,17 @@ class notesClass {
 
     sequence(sequence) {
         let seq = new Tone.Sequence((time, note) => {
+            let currentButton = boardButtons[note];
             synth.triggerAttackRelease(note, '4n', time);
             Tone.Draw.schedule(() => {
-                boardButtons[note].classList.add('active');
+                currentButton.classList.add('active');
             }, time);
-            setInactive(allBtns);
+            window.setInterval(setInactive, 600, allBtns);
         }, sequence, '4n');
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start();
         Tone.Transport.start(2);
-    }
-
-    background() {
-        let oscillator = new Tone.Oscillator(400, 'sine').start();
-        let lowPassFilter = new Tone.LowpassCombFilter(0.1, 1, 400);
-        oscillator.chain(lowPassFilter, gain);
     }
 }
 
