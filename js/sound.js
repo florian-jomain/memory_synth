@@ -37,27 +37,35 @@ gain.toMaster();
 // gain.toMaster();
 
 //----------------------------------------------------------
-// Synth definition
+// Randomize synth oscillator values
 
-const synth = new Tone.Synth({
-    'oscillator': {
-        'type': randomOscillator(),
-        'modulationFrequency': Math.floor(Math.random() * 2) //0.8
-    },
-    'envelope': {
-        'attack': Math.floor(Math.random() * 2), //0.2
-        'decay': Math.floor(Math.random() * 2), //0.5
-        'sustain': Math.floor(Math.random() * 2), //0.2
-        'release': Math.floor(Math.random() * 2) //0.5
-    }
-});
-
-function randomOscillator() {
+export function randomOscillator() {
     let oscillatorTypes = ['sine', 'sine2', 'sine4', 'sine6', 'sine8', 'square', 'square2', 'square4', 'square6', 'square8', 'triangle', 'triangle2', 'triangle4', 'triangle6', 'triangle8', 'sawtooth', 'sawtooth2', 'sawtooth4', 'sawtooth6', 'sawtooth8', 'fatsawtooth', 'fatsawtooth2', 'fatsawtooth4', 'fatsawtooth6', 'fatsawtooth8'];
     let randomValue = Math.floor(Math.random() * oscillatorTypes.length);
     let randOsc = oscillatorTypes[randomValue];
     return randOsc;
 }
+
+function randomValue() {
+    let randVal = Math.floor(Math.random() * 4);
+    return randVal;
+}
+
+//----------------------------------------------------------
+// Synth definition
+
+const synth = new Tone.Synth({
+    'oscillator': {
+        'type': randomOscillator(),
+        'modulationFrequency': randomValue()
+    },
+    'envelope': {
+        'attack': 0.2,
+        'decay': 0.5,
+        'sustain': 0.2,
+        'release': 0.5
+    }
+});
 
 let reverb = new Tone.Reverb({
     decay: 10,
@@ -71,7 +79,7 @@ synth.chain(reverb, gain);
 //----------------------------------------------------------
 //Singular tone functions
 
-import { sequences, level, allBtns, boardButtons, userInput, setActive, setInactive, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 } from './events.js';
+import { allBtns, boardButtons, userInput, setActive, setInactive, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 } from './events.js';
 
 class notesClass {
 
@@ -138,24 +146,24 @@ class notesClass {
         console.log(`User input: ${userInput}`);
     }
 
-    a4() {
-        synth.triggerAttackRelease('A4', '4n');
+    a3() {
+        synth.triggerAttackRelease('A3', '4n');
         setActive(button10);
-        userInput.push('A4');
+        userInput.push('A3');
         console.log(`User input: ${userInput}`);
     }
 
-    aSharp4() {
-        synth.triggerAttackRelease('A#4', '4n');
+    aSharp3() {
+        synth.triggerAttackRelease('A#3', '4n');
         setActive(button11);
-        userInput.push('A#4');
+        userInput.push('A#3');
         console.log(`User input: ${userInput}`);
     }
 
-    b4() {
-        synth.triggerAttackRelease('B4', '4n');
+    b3() {
+        synth.triggerAttackRelease('B3', '4n');
         setActive(button12);
-        userInput.push('B4');
+        userInput.push('B3');
         console.log(`User input: ${userInput}`);
     }
 
@@ -186,70 +194,6 @@ class notesClass {
         userInput.push('D#4');
         console.log(`User input: ${userInput}`);
     }
-
-    // c3Hover() {
-    //     synth.triggerAttackRelease('C3', '4n');
-    // }
-
-    // cSharp3Hover() {
-    //     synth.triggerAttackRelease('C#3', '4n');
-    // }
-
-    // d3Hover() {
-    //     synth.triggerAttackRelease('D3', '4n');
-    // }
-
-    // dSharp3Hover() {
-    //     synth.triggerAttackRelease('D#3', '4n');
-    // }
-
-    // e3Hover() {
-    //     synth.triggerAttackRelease('E3', '4n');
-    // }
-
-    // f3Hover() {
-    //     synth.triggerAttackRelease('F3', '4n');
-    // }
-
-    // fSharp3Hover() {
-    //     synth.triggerAttackRelease('F#3', '4n');
-    // }
-
-    // g3Hover() {
-    //     synth.triggerAttackRelease('G3', '4n');
-    // }
-
-    // gSharp3Hover() {
-    //     synth.triggerAttackRelease('G#3', '4n');
-    // }
-
-    // a4Hover() {
-    //     synth.triggerAttackRelease('A4', '4n');
-    // }
-
-    // aSharp4Hover() {
-    //     synth.triggerAttackRelease('A#4', '4n');
-    // }
-
-    // b4Hover() {
-    //     synth.triggerAttackRelease('B4', '4n');
-    // }
-
-    // c4Hover() {
-    //     synth.triggerAttackRelease('C4', '4n');
-    // }
-
-    // cSharp4Hover() {
-    //     synth.triggerAttackRelease('C#4', '4n');
-    // }
-
-    // d4Hover() {
-    //     synth.triggerAttackRelease('D4', '4n');
-    // }
-
-    // dSharp4Hover() {
-    //     synth.triggerAttackRelease('D#4', '4n');
-    // }
 
     sequence(sequence) {
         let seq = new Tone.Sequence((time, note) => {
