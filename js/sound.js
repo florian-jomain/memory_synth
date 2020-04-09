@@ -41,30 +41,37 @@ gain.toMaster();
 
 const synth = new Tone.Synth({
     'oscillator': {
-        'type': 'sine',
-        'modulationFrequency': 0.8
+        'type': randomOscillator(),
+        'modulationFrequency': Math.floor(Math.random() * 2) //0.8
     },
     'envelope': {
-        'attack': 0.2,
-        'decay': 0.5,
-        'sustain': 0.2,
-        'release': 0.5,
+        'attack': Math.floor(Math.random() * 2), //0.2
+        'decay': Math.floor(Math.random() * 2), //0.5
+        'sustain': Math.floor(Math.random() * 2), //0.2
+        'release': Math.floor(Math.random() * 2) //0.5
     }
 });
 
-// let reverb = new Tone.Reverb({
-//     decay: 10,
-//     preDelay: 0.05
-// });
-// reverb.generate();
+function randomOscillator() {
+    let oscillatorTypes = ['sine', 'sine2', 'sine4', 'sine6', 'sine8', 'square', 'square2', 'square4', 'square6', 'square8', 'triangle', 'triangle2', 'triangle4', 'triangle6', 'triangle8', 'sawtooth', 'sawtooth2', 'sawtooth4', 'sawtooth6', 'sawtooth8', 'fatsawtooth', 'fatsawtooth2', 'fatsawtooth4', 'fatsawtooth6', 'fatsawtooth8'];
+    let randomValue = Math.floor(Math.random() * oscillatorTypes.length);
+    let randOsc = oscillatorTypes[randomValue];
+    return randOsc;
+}
 
-// synth.chain(reverb, gain);
-synth.connect(gain); // to plug off reverb
+let reverb = new Tone.Reverb({
+    decay: 10,
+    preDelay: 0.05
+});
+reverb.generate();
+
+synth.chain(reverb, gain);
+// synth.connect(gain); // to plug off reverb
 
 //----------------------------------------------------------
 //Singular tone functions
 
-import { sequences, level, boardButtons, userInput, setActive, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 } from './events.js';
+import { sequences, level, allBtns, boardButtons, userInput, setActive, setInactive, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16 } from './events.js';
 
 class notesClass {
 
@@ -247,6 +254,10 @@ class notesClass {
     sequence(sequence) {
         let seq = new Tone.Sequence((time, note) => {
             synth.triggerAttackRelease(note, '4n', time);
+            Tone.Draw.schedule(() => {
+                boardButtons[note].classList.add('active');
+            }, time);
+            setInactive(allBtns);
         }, sequence, '4n');
         seq.loop = false;
         Tone.Transport.bpm.value = 90;

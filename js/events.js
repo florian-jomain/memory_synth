@@ -30,7 +30,26 @@ export let button14 = document.querySelector('#btn-14');
 export let button15 = document.querySelector('#btn-15');
 export let button16 = document.querySelector('#btn-16');
 
-let allBtns = document.querySelectorAll('.button');
+// export let c3 = document.querySelector([name="c3"]);
+// export let cSharp3 = document.querySelector('#cSharp3');
+// export let d3 = document.querySelector('#d3');
+// export let dSharp3 = document.querySelector('#dSharp3');
+// export let e3 = document.querySelector('#e3');
+// export let f3 = document.querySelector('#f3');
+// export let fSharp3 = document.querySelector('#fSharp3');
+// export let g3 = document.querySelector('#g3');
+// export let gSharp3 = document.querySelector('#gSharp3');
+// export let a4 = document.querySelector('#a4');
+// export let aSharp4 = document.querySelector('#aSharp4');
+// export let b4 = document.querySelector('#b4');
+// export let c4 = document.querySelector('#c4');
+// export let cSharp4 = document.querySelector('#cSharp4');
+// export let d4 = document.querySelector('#d4');
+// export let dSharp4 = document.querySelector('#dSharp4');
+
+// console.log(c3);
+
+export let allBtns = document.querySelectorAll('.button');
 
 //---------------------------------------------
 // Mapping whole keyboard to array
@@ -85,37 +104,20 @@ function generateRandomSequence(level) {
 // });
 
 export function setActive(button) {
-    button.classList.toggle('active');
+    button.classList.add('active');
 }
 
-export function setInactive(button) {
-    button.classList.remove('active');
-}
-
-// function setInactive() {
-//     allBtns.forEach(button => {
-//         button.classList.remove('active');
-//     });
+// export function setInactive(button) {
+//     button.classList.remove('active');
 // }
 
-//---------------------------------------------
-// Lighting up buttons (active class) when each note of the sequence is played
+console.log(allBtns);
 
-function lightingKeys(){
-    let mappedSequence = [];
-    currentSequence.forEach(value => {
-        mappedSequence.push(boardButtons[value]);
+export function setInactive(array) {
+    array.forEach(button => {
+        button.classList.remove('active');
     });
-    console.log(mappedSequence);
-
-    // mappedSequence.forEach(element => {
-    //     element.classList.toggle('active');
-    //     element.classList.toggle('active');
-    // })
 }
-
-
-// function lightingKeys()
 
 //---------------------------------------------
 // Mapping DOM elements to CSS animations
@@ -127,9 +129,9 @@ function lightingKeys(){
 //---------------------------------------------
 // Play button event
 
-// let mainBtn = document.querySelector('#main-button');
+// let repeatBtn = document.getElementById('repeat-button');
 
-// mainBtn.addEventListener('mouseover', playSequence(level));
+// repeatBtn.addEventListener('click', replaySequence);
 
 //---------------------------------------------
 // Validate button event
@@ -202,19 +204,24 @@ window.addEventListener('load', playRandomSequence());
 function playRandomSequence() {
     generateRandomSequence(level);
     notes.sequence(currentSequence);
-    lightingKeys();
+}
+
+function replaySequence() {
+    notes.sequence(currentSequence);
 }
 
 function checkInput() {
     if (userInput.length != currentSequence.length) {
         userInput = [];
         setInactive(allBtns);
+        notes.sequence(currentSequence);
         return false;
     }
     for (let i = 0; i < userInput.length; i++) {
         if (userInput[i] != currentSequence[i]) {
                 userInput = [];
                 setInactive(allBtns);
+                notes.sequence(currentSequence);
                 return false;
         } 
     }
@@ -224,7 +231,6 @@ function checkInput() {
 function nextLevel() {
     level++;
     playRandomSequence();
-    setInactive(allBtns);
     userInput = [];
 }
 
