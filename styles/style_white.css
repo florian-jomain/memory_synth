@@ -23,8 +23,8 @@ body {
 }
 
 .button {
-  width: 10vw;
-  height: 10vw;
+  width: 8vw;
+  height: 8vw;
   border-radius: 50%;
   background-color: whitesmoke;
 }
@@ -34,8 +34,8 @@ body {
 }
 
 .button.active {
-  width: 10vw;
-  height: 10vw;
+  width: 8vw;
+  height: 8vw;
   background-color: whitesmoke;
   box-shadow: 0 0 20px 5px gold;
 }
