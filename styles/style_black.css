@@ -37,7 +37,7 @@ body {
   width: 10vw;
   height: 10vw;
   background-color: black;
-  box-shadow: 0 0 5px 5px blue;
+  box-shadow: 0 0 20px 5px blue;
 }
 
 #validate-button {
