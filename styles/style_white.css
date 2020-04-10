@@ -23,8 +23,8 @@ body {
 }
 
 .button {
-  width: 150px;
-  height: 150px;
+  width: 7vw;
+  height: 7vw;
   border-radius: 50%;
   background-color: whitesmoke;
 }
@@ -34,20 +34,20 @@ body {
 }
 
 .button.active {
-  width: 150px;
-  height: 150px;
+  width: 7vw;
+  height: 7vw;
   background-color: whitesmoke;
   box-shadow: 0 0 20px 5px black;
 }
 
 #validate-button {
-  width: 20px;
-  height: 20px;
+  width: 1.5vw;
+  height: 1.5vw;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 10px 10px blue;
   animation: 10s linear infinite pulsateBtn;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 @keyframes pulsateBtn {
