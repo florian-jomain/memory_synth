@@ -23,11 +23,6 @@ export function randomOscillator() {
     return randOsc;
 }
 
-function randomValue() {
-    let randVal = Math.floor(Math.random() * 4);
-    return randVal;
-}
-
 //----------------------------------------------------------
 // Synth definition
 
