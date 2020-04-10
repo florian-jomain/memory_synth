@@ -15,18 +15,18 @@ body {
 
 .container{
     width: 80vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    grid-template-rows: 20vh 20vh 20vh 20vh;
+    justify-items: center;
     align-items: center;
 }
 
 .button {
-  width: 5vw;
-  height: 5vw;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: black;
-  margin: 40px;
 }
 
 .button:hover{
@@ -34,22 +34,21 @@ body {
 }
 
 .button.active {
-  width: 5vw;
-  height: 5vw;
+  width: 150px;
+  height: 150px;
   background-color: black;
   box-shadow: 0 0 20px 5px white;
-  margin: 40px;
 }
 
 #validate-button {
-  width: 2vw;
-  height: 2vw;
+  width: 20px;
+  height: 20px;
   opacity: 0.8;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 10px 10px blue;
   animation: 10s linear infinite pulsateBtn;
-  margin-top: 40px;
+  margin-top: 100px;
 }
 
 @keyframes pulsateBtn {

@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color:whitesmoke;
+  background-color:black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,40 +14,42 @@ body {
 }
 
 .container{
-  width: 80vw;
-  display: grid;
-  grid-template-columns: 20vw 20vw 20vw 20vw;
-  grid-template-rows: 20vh 20vh 20vh 20vh;
-  justify-items: center;
-  align-items: center;
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
-  width: 150px;
-  height: 150px;
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
-  background-color: whitesmoke;
+  background-color: black;
+  margin: 40px;
 }
 
 .button:hover{
-  box-shadow: 0 0 5px 5px rgb(200, 200, 200);
+  box-shadow: 0 0 5px 5px rgb(50, 50, 50);
 }
 
 .button.active {
-  width: 150px;
-  height: 150px;
-  background-color: whitesmoke;
-  box-shadow: 0 0 20px 5px black;
+  width: 5vw;
+  height: 5vw;
+  background-color: black;
+  box-shadow: 0 0 20px 5px white;
+  margin: 40px;
 }
 
 #validate-button {
-  width: 20px;
-  height: 20px;
+  width: 2vw;
+  height: 2vw;
+  opacity: 0.8;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 10px 10px blue;
   animation: 10s linear infinite pulsateBtn;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 @keyframes pulsateBtn {

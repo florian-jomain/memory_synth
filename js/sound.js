@@ -34,7 +34,7 @@ function randomValue() {
 const synth = new Tone.Synth({
     'oscillator': {
         'type': randomOscillator(),
-        'modulationFrequency': randomValue()
+        'modulationFrequency': 0.8
     },
     'envelope': {
         'attack': 0.2,
@@ -163,9 +163,9 @@ class notesClass {
             Tone.Draw.schedule(() => {
                 currentButton.classList.add('active');
             }, time);
-            setInactive(allBtns);
+            // setInactive(allBtns);
         }, sequence, '4n');
-        // window.setInterval(setInactive, 1000, allBtns);
+        window.setInterval(setInactive, 1000, allBtns);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start();
