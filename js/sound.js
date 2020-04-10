@@ -163,9 +163,8 @@ class notesClass {
             Tone.Draw.schedule(() => {
                 currentButton.classList.add('active');
             }, time);
-            // setInactive(allBtns);
         }, sequence, '4n');
-        window.setInterval(setInactive, 2000, allBtns);
+        window.setInterval(setInactive, seq.loopEnd * 500, allBtns);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start();
