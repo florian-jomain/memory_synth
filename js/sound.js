@@ -165,7 +165,7 @@ class notesClass {
             }, time);
             // setInactive(allBtns);
         }, sequence, '4n');
-        window.setInterval(setInactive, 1000, allBtns);
+        window.setInterval(setInactive, 2000, allBtns);
         seq.loop = false;
         Tone.Transport.bpm.value = 90;
         seq.start();
