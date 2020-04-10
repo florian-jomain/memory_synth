@@ -10,7 +10,7 @@ window.addEventListener('click', () => {
 //----------------------------------------------------------
 //Generic variables
 
-const gain = new Tone.Gain(0.3);
+const gain = new Tone.Gain(0.2);
 gain.toMaster();
 
 //----------------------------------------------------------

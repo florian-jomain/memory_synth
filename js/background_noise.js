@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   started = true;
 });
 
-const gain = new Tone.Gain(0.1);
+const gain = new Tone.Gain(0.7);
 gain.toMaster();
 
 const phaser = new Tone.Phaser({
@@ -112,8 +112,8 @@ amSynth.connect(jcReverb).connect(gain);
 
 const sequence3 = new Tone.Sequence((time, note) => {
     amSynth.triggerAttackRelease(note, '32n', time);
-}, ['D1'], '1n');
+}, ['D2'], '1n');
 
 sequence3.start(0);
 
-// Tone.Transport.start(2);
+Tone.Transport.start(2);
