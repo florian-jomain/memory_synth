@@ -1,6 +1,6 @@
 // Web browsers are blocking audio context before user makes a gesture. This should fix it.
 let started = null;
-window.addEventListener('load', () => {
+window.addEventListener('click', () => {
   if (started) return;
   started = true;
 });
@@ -114,6 +114,18 @@ const sequence3 = new Tone.Sequence((time, note) => {
     amSynth.triggerAttackRelease(note, '32n', time);
 }, ['D2'], '1n');
 
+sequence3.humanize = true;
+
 sequence3.start(0);
 
 Tone.Transport.start(2);
+
+// function fadeOut() {
+//     const panVol = new Tone.PanVol({
+//         pan : -1 ,
+//         volume : 50 ,
+//         mute : false
+//     });
+//     console.log('receiving');
+//     amSynth.connect(panVol);
+// }
