@@ -17,7 +17,7 @@ gain.toMaster();
 // Randomize synth oscillator values
 
 export function randomOscillator() {
-    let oscillatorTypes = ['sine', 'sine2', 'sine4', 'sine6', 'sine8', 'square', 'square2', 'square4', 'square6', 'square8', 'triangle', 'triangle2', 'triangle4', 'triangle6', 'triangle8', 'sawtooth', 'sawtooth2', 'sawtooth4', 'sawtooth6', 'sawtooth8', 'fatsawtooth', 'fatsawtooth2', 'fatsawtooth4', 'fatsawtooth6', 'fatsawtooth8'];
+    let oscillatorTypes = ['sine', 'sine2', 'sine4', 'sine6', 'sine8', 'square2', 'square4', 'square6', 'square8', 'triangle', 'triangle2', 'triangle4', 'triangle6', 'triangle8', 'sawtooth', 'sawtooth2', 'sawtooth4', 'sawtooth6', 'sawtooth8'];
     let randomValue = Math.floor(Math.random() * oscillatorTypes.length);
     let randOsc = oscillatorTypes[randomValue];
     return randOsc;
