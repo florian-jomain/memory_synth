@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   started = true;
 });
 
-const gain = new Tone.Gain(0.05);
+const gain = new Tone.Gain(0.1);
 gain.toMaster();
 
 const phaser = new Tone.Phaser({
@@ -24,8 +24,6 @@ const phaser = new Tone.Phaser({
 // reverb.generate();
 
 const jcReverb = new Tone.JCReverb(4);
-
-const avgGain = new Tone.EqualPowerGain();
 
 // const whiteNoise = new Tone.Noise({
 //     type: 'white',
@@ -72,7 +70,7 @@ const sequence1 = new Tone.Sequence((time, note) => {
     fmSynth.triggerAttackRelease(note, '32n', time);
 }, ['D1', 'G1', 'D2', 'C2', 'D2', 'A2'], '32n');
 
-sequence1.start();
+// sequence1.start(10);
 
 // const sequence2 = new Tone.Sequence((time, note) => {
 //     fmSynth.triggerAttackRelease(note, '32n', time);
@@ -114,8 +112,8 @@ amSynth.connect(jcReverb).connect(gain);
 
 const sequence3 = new Tone.Sequence((time, note) => {
     amSynth.triggerAttackRelease(note, '32n', time);
-}, ['D1']);
+}, ['D1'], '1n');
 
-sequence3.start(5);
+sequence3.start(0);
 
-Tone.Transport.start(2);
+// Tone.Transport.start(2);
