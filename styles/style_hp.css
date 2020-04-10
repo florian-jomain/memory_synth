@@ -44,8 +44,8 @@ h1 {
 }
 
 #black-button {
-  width: 150px;
-  height: 150px;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   background-color: black;
   box-shadow: 0 0 5px 5px white;
@@ -65,8 +65,8 @@ h1 {
 }
 
 #white-button {
-  width: 150px;
-  height: 150px;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 0 5px 5px black;

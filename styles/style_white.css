@@ -37,15 +37,15 @@ body {
   width: 10vw;
   height: 10vw;
   background-color: whitesmoke;
-  box-shadow: 0 0 20px 5px black;
+  box-shadow: 0 0 5px 5px gold;
 }
 
 #validate-button {
   width: 1.5vw;
   height: 1.5vw;
   border-radius: 50%;
-  background-color: blue;
-  box-shadow: 0 0 10px 10px blue;
+  background-color: lime;
+  box-shadow: 0 0 10px 10px lime;
   animation: 10s linear infinite pulsateBtn;
   margin-top: 40px;
 }
